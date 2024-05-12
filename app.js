@@ -101,6 +101,29 @@ const listKetikanPanggilGBST = document.querySelector('#listKetikanPanggilGBST')
 const listRmkGBST = document.querySelector('#listRmkGBST');
 let brBantuan = document.createElement('br');
 // let variabelBantuan = 0;
+let namaLengkapKapital = (namaLengkap) => {
+  let namaPerKata = namaLengkap.split(" ");
+
+  return namaPerKata.map((nama) => {
+    return nama[0].toUpperCase() + nama.substring(1);
+  }).join(" ");
+}
+
+let bangsalKapital = (bangsal) => {
+  if (bangsal === "w") {
+    return "Wisnumurti"
+  } else if (bangsal === "k") {
+    return "Kesawamurti"
+  }
+  return bangsal.toUpperCase();
+}
+
+let jamFix = (jam) => {
+  if (jam.length === 1) {
+    return '0' + jam;
+  }
+  return jam;
+}
 
 // TOMBOL HTB
 tombolHTB.addEventListener('click', () => {
@@ -129,15 +152,15 @@ tombolHTB.addEventListener('click', () => {
 // TOMBOL OH
 tombolOH.addEventListener('click', () => {
 
-  outputNamaOH = inputNamaOH.value;
+  outputNamaOH = namaLengkapKapital(inputNamaOH.value);
   outputKelaminOH = inputKelaminOH.value.toUpperCase();
   outputUmurOH = inputUmurOH.value;
   outputRmOH  = inputRmOH.value;
-  outputBangsalOH = inputBangsalOH.value;
+  outputBangsalOH = bangsalKapital(inputBangsalOH.value);
   outputDiagnosisOH = inputDiagnosisOH.value;
   outputPlanOH = inputPlanOH.value;
   outputOkOH = inputOkOH.value;
-  outputJamOH = inputJamOH.value;
+  outputJamOH = jamFix(inputJamOH.value);
   outputDokterOH = inputDokterOH.value.toUpperCase();
 
   dataPasienOH.push({
@@ -168,6 +191,11 @@ tombolOH.addEventListener('click', () => {
 
   jadwalOH.append(listPasienOH);
   jadwalOH.classList.remove('none');
+
+  if (urutanPasienGbstMinSatu !== 0 && brBantuan.classList[0] !== 'ada') {
+    jadwalOH.after(brBantuan);
+    brBantuan.classList.add('ada');
+  }
 
   let ketikanPanggilOH = document.createElement('div');
   ketikanPanggilOH.innerHTML += `
@@ -239,7 +267,10 @@ tombolOH.addEventListener('click', () => {
   <br>
   <br>DPJP : dr. ${dataPasienOH[urutanPasienOhMinSatu]['dokter']}
   <br>Operator : dr. ${dataPasienOH[urutanPasienOhMinSatu]['dokter']}
-  <br>Assistant : dr.</p>
+  <br>Assistant : dr.
+  <br>
+  <br>Status : Hidup
+  <br>BLPL</p>
   </div>
   `
 
@@ -264,15 +295,15 @@ tombolOH.addEventListener('click', () => {
 // TOMBOL GBST
 tombolGBST.addEventListener('click', () => {
 
-  outputNamaGBST = inputNamaGBST.value;
+  outputNamaGBST = namaLengkapKapital(inputNamaGBST.value);
   outputKelaminGBST = inputKelaminGBST.value.toUpperCase();
   outputUmurGBST = inputUmurGBST.value;
   outputRmGBST  = inputRmGBST.value;
-  outputBangsalGBST = inputBangsalGBST.value;
+  outputBangsalGBST = bangsalKapital(inputBangsalGBST.value);
   outputDiagnosisGBST = inputDiagnosisGBST.value;
   outputPlanGBST = inputPlanGBST.value;
   outputAnestesiGBST = inputAnestesiGBST.value.toUpperCase();
-  outputJamGBST = inputJamGBST.value;
+  outputJamGBST = jamFix(inputJamGBST.value);
   outputDokterGBST = inputDokterGBST.value.toUpperCase();
 
   dataPasienGBST.push({
@@ -307,6 +338,11 @@ tombolGBST.addEventListener('click', () => {
 
   jadwalGBST.append(listPasienGBST);
   jadwalGBST.classList.remove('none');
+
+  if (urutanPasienOhMinSatu !== 0 && brBantuan.classList[0] !== 'ada') {
+    jadwalOH.after(brBantuan);
+    brBantuan.classList.add('ada');
+  }
 
   let ketikanPanggilGBST = document.createElement('div');
   ketikanPanggilGBST.innerHTML += `
@@ -362,7 +398,10 @@ tombolGBST.addEventListener('click', () => {
   <br>
   <br>DPJP : dr. ${dataPasienGBST[urutanPasienGbstMinSatu]['dokter']}
   <br>Operator : dr. ${dataPasienGBST[urutanPasienGbstMinSatu]['dokter']}
-  <br>Assistant : dr.</p>
+  <br>Assistant : dr.
+  <br>
+  <br>Status : Hidup
+  <br>BLPL</p>
   </div>
   `
 
@@ -394,10 +433,10 @@ document.querySelector('#toggleFormGBST').addEventListener('click', () => {
 document.querySelector('#toggleJadwalOperasi').addEventListener('click', () => {
   document.querySelector('#containerJadwalOperasi').classList.toggle('paddingContainerJadwalOperasi');
   document.querySelector('#jadwalOperasi').classList.toggle('none');
-  if (urutanPasienOhMinSatu !== 0 && urutanPasienGbstMinSatu !== 0 && brBantuan.classList[0] !== 'ada') {
-    jadwalOH.after(brBantuan);
-    brBantuan.classList.add('ada');
-  }
+  // if (urutanPasienOhMinSatu !== 0 && urutanPasienGbstMinSatu !== 0 && brBantuan.classList[0] !== 'ada') {
+  //   jadwalOH.after(brBantuan);
+  //   brBantuan.classList.add('ada');
+  // }
 })
 document.querySelector('#toggleKetikanPanggilOH').addEventListener('click', () => {
   document.querySelector('#listKetikanPanggilOH').classList.toggle('none');
