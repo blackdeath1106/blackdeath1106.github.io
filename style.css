@@ -138,4 +138,10 @@ h1 {
   body {
     font-size: 1em;
   }
+  h1 {
+    font-size: 0.8em;
+  }
+  h2 {
+    font-size: 0.8em;
+  }
 }
