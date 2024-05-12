@@ -133,3 +133,9 @@ h1 {
 .aturMarginH1 {
   margin-top: 10px;
 }
+
+@media only screen and (max-width: 767px) {
+    body {
+       font-size: 2em;
+    }
+}
