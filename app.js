@@ -110,9 +110,9 @@ let namaLengkapKapital = (namaLengkap) => {
 }
 
 let bangsalKapital = (bangsal) => {
-  if (bangsal === "w" OR bangsal === "W") {
+  if (bangsal === "w" || bangsal === "W") {
     return "Wisnumurti"
-  } else if (bangsal === "k" OR bangsal === "K") {
+  } else if (bangsal === "k" || bangsal === "K") {
     return "Kesawamurti"
   }
   return bangsal.toUpperCase();
