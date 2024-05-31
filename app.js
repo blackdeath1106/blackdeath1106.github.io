@@ -110,12 +110,71 @@ let namaLengkapKapital = (namaLengkap) => {
 }
 
 let bangsalKapital = (bangsal) => {
-  if (bangsal === "w") {
+  if (bangsal === "w" || bangsal === "W") {
     return "Wisnumurti"
-  } else if (bangsal === "k") {
+  } else if (bangsal === "k" || bangsal === "K") {
     return "Kesawamurti"
   }
   return bangsal.toUpperCase();
+}
+
+let diagnosisPlanKapital = (diagnosisPlan) => {
+  let diagnosisPlanHurufKecil = diagnosisPlan.toLowerCase();
+  let diagnosisPlanPerKata = diagnosisPlanHurufKecil.split(" ");
+
+  return diagnosisPlanPerKata.map((dp) => {
+    if (
+      dp === "of"||
+      dp === "the" ||
+      dp === "dan"||
+      dp === "dengan"||
+      dp === "serta"||
+      dp === "atau"||
+      dp === "dari"||
+      dp === "on"||
+      dp === "pre"||
+      dp === "post"||
+      dp === "ai"||
+      dp === "ec"||
+      dp === "s/d"||
+      dp === "and"||
+      dp === "ke"||
+      dp === "dd"||
+      dp === "due"||
+      dp === "to"||
+      dp === "dalam" ||
+      dp === "by" ||
+      dp === "at"
+    ) {
+      return dp[0] + dp.substring(1);
+    } else if (
+      dp === "asd" ||
+      dp === "vsd" ||
+      dp === "tof" ||
+      dp === "dcsa" ||
+      dp === "afrvr" ||
+      dp === "ipc" ||
+      dp === "ali" ||
+      dp === "te" ||
+      dp === "tt" ||
+      dp === "la" ||
+      dp === "ga" ||
+      dp === "umn" ||
+      dp === "lmn" ||
+      dp === "sdh" ||
+      dp === "aml" ||
+      dp === "wsd" ||
+      dp === "vap" ||
+      dp === "clti" ||
+      dp === "dm" ||
+      dp === "pmo" ||
+      dp === "msa" ||
+      dp === "av"
+    ) {
+      return dp;
+    }
+    return dp[0].toUpperCase() + dp.substring(1);
+  }).join(" ");
 }
 
 let jamFix = (jam) => {
@@ -157,8 +216,8 @@ tombolOH.addEventListener('click', () => {
   outputUmurOH = inputUmurOH.value;
   outputRmOH  = inputRmOH.value;
   outputBangsalOH = bangsalKapital(inputBangsalOH.value);
-  outputDiagnosisOH = inputDiagnosisOH.value;
-  outputPlanOH = inputPlanOH.value;
+  outputDiagnosisOH = diagnosisPlanKapital(inputDiagnosisOH.value);
+  outputPlanOH = diagnosisPlanKapital(inputPlanOH.value);
   outputOkOH = inputOkOH.value;
   outputJamOH = jamFix(inputJamOH.value);
   outputDokterOH = inputDokterOH.value.toUpperCase();
@@ -300,8 +359,8 @@ tombolGBST.addEventListener('click', () => {
   outputUmurGBST = inputUmurGBST.value;
   outputRmGBST  = inputRmGBST.value;
   outputBangsalGBST = bangsalKapital(inputBangsalGBST.value);
-  outputDiagnosisGBST = inputDiagnosisGBST.value;
-  outputPlanGBST = inputPlanGBST.value;
+  outputDiagnosisGBST = diagnosisPlanKapital(inputDiagnosisGBST.value);
+  outputPlanGBST = diagnosisPlanKapital(inputPlanGBST.value);
   outputAnestesiGBST = inputAnestesiGBST.value.toUpperCase();
   outputJamGBST = jamFix(inputJamGBST.value);
   outputDokterGBST = inputDokterGBST.value.toUpperCase();
