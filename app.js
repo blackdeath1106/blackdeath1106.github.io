@@ -180,6 +180,17 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "rosc" ||
       dp === "ckd" ||
       dp === "hd" ||
+      dp === "as" ||
+      dp === "ar" ||
+      dp === "ms" ||
+      dp === "mr" ||
+      dp === "ps" ||
+      dp === "pr" ||
+      dp === "ts" ||
+      dp === "tr" ||
+      dp === "lcc" ||
+      dp === "ncc" ||
+      dp === "rcc" ||
       dp === "av"
     ) {
       return dp.toUpperCase();
