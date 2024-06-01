@@ -147,6 +147,7 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "et" ||
       dp === "di" ||
       dp === "pada" ||
+       dp === "ke" ||
       dp === "at"
     ) {
       return dp;
