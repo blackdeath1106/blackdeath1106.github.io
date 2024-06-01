@@ -145,6 +145,7 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "dalam" ||
       dp === "by" ||
       dp === "et" ||
+      dp === "di" ||
       dp === "at"
     ) {
       return dp;
@@ -196,6 +197,7 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "pmo" ||
       dp === "pfo" ||
       dp === "ph" ||
+      dp === "tb" ||
       dp === "av"
     ) {
       return dp.toUpperCase();
