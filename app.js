@@ -144,9 +144,10 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "to"||
       dp === "dalam" ||
       dp === "by" ||
+      dp === "et" ||
       dp === "at"
     ) {
-      return dp[0] + dp.substring(1);
+      return dp;
     } else if (
       dp === "asd" ||
       dp === "vsd" ||
@@ -169,9 +170,17 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "dm" ||
       dp === "pmo" ||
       dp === "msa" ||
+      dp === "ii" ||
+      dp === "iii" ||
+      dp === "iv" ||
+      dp === "vi" ||
+      dp === "vii" ||
+      dp === "viii" ||
+      dp === "ix" ||
+      dp === "rosc" ||
       dp === "av"
     ) {
-      return dp;
+      return dp.toUpperCase();
     }
     return dp[0].toUpperCase() + dp.substring(1);
   }).join(" ");
