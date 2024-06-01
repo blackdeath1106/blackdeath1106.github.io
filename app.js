@@ -192,6 +192,10 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "ncc" ||
       dp === "rcc" ||
       dp === "pda" ||
+      dp === "dcsa" ||
+      dp === "pmo" ||
+      dp === "pfo" ||
+      dp === "ph" ||
       dp === "av"
     ) {
       return dp.toUpperCase();
