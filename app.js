@@ -149,65 +149,69 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "pada" ||
       dp === "ke" ||
       dp === "a" ||
+      dp === "via" ||
       dp === "at"
     ) {
       return dp;
     } else if (
-      dp === "asd" ||
-      dp === "vsd" ||
-      dp === "tof" ||
-      dp === "dcsa" ||
-      dp === "afrvr" ||
-      dp === "ipc" ||
-      dp === "ali" ||
-      dp === "te" ||
-      dp === "tt" ||
-      dp === "la" ||
-      dp === "ga" ||
-      dp === "umn" ||
-      dp === "lmn" ||
-      dp === "sdh" ||
-      dp === "aml" ||
-      dp === "wsd" ||
-      dp === "vap" ||
-      dp === "clti" ||
-      dp === "dm" ||
-      dp === "pmo" ||
-      dp === "msa" ||
-      dp === "ii" ||
-      dp === "iii" ||
-      dp === "iv" ||
-      dp === "vi" ||
-      dp === "vii" ||
-      dp === "viii" ||
-      dp === "ix" ||
-      dp === "rosc" ||
-      dp === "ckd" ||
-      dp === "hd" ||
-      dp === "as" ||
-      dp === "ar" ||
-      dp === "ms" ||
-      dp === "mr" ||
-      dp === "ps" ||
-      dp === "pr" ||
-      dp === "ts" ||
-      dp === "tr" ||
-      dp === "lcc" ||
-      dp === "ncc" ||
-      dp === "rcc" ||
-      dp === "pda" ||
-      dp === "dcsa" ||
-      dp === "pmo" ||
-      dp === "pfo" ||
-      dp === "ph" ||
-      dp === "tb" ||
-      dp === "rhd" ||
-      dp === "da" ||
-      dp === "de" ||
-      dp === "dvt" ||
-      dp === "cvi" ||
-      dp === "hflr" ||
-      dp === "pa" ||
+      dp === "asd" || dp === "asd," ||
+      dp === "vsd" || dp === "vsd," ||
+      dp === "dcsa" || dp === "dcsa," ||
+      dp === "afrvr" || dp === "afrvr," ||
+      dp === "ipc" || dp === "ipc," ||
+      dp === "ali" || dp === "ali," ||
+      dp === "te" || dp === "te," ||
+      dp === "tt" || dp === "tt," ||
+      dp === "la" || dp === "la," ||
+      dp === "ga" || dp === "ga," ||
+      dp === "umn" || dp === "umn," ||
+      dp === "lmn" || dp === "lmn," ||
+      dp === "sdh" || dp === "sdh," ||
+      dp === "aml" || dp === "aml," ||
+      dp === "wsd" || dp === "wsd," ||
+      dp === "vap" || dp === "vap," ||
+      dp === "clti" || dp === "clti," ||
+      dp === "dm" || dp === "dm," ||
+      dp === "pmo" || dp === "pmo," ||
+      dp === "msa" || dp === "msa," ||
+      dp === "ii" || dp === "ii," ||
+      dp === "iii" || dp === "iii," ||
+      dp === "iv" || dp === "iv," ||
+      dp === "vi" || dp === "vi," ||
+      dp === "vii" || dp === "vii," ||
+      dp === "viii" || dp === "viii," ||
+      dp === "ix" || dp === "ix," ||
+      dp === "rosc" || dp === "rosc," ||
+      dp === "ckd" || dp === "ckd," ||
+      dp === "hd" || dp === "hd," ||
+      dp === "as" || dp === "as," ||
+      dp === "ar" || dp === "ar," ||
+      dp === "ms" || dp === "ms," ||
+      dp === "mr" || dp === "mr," ||
+      dp === "ps" || dp === "ps," ||
+      dp === "pr" || dp === "pr," ||
+      dp === "ts" || dp === "ts," ||
+      dp === "tr" || dp === "tr," ||
+      dp === "lcc" || dp === "lcc," ||
+      dp === "ncc" || dp === "ncc," ||
+      dp === "rcc" || dp === "rcc," ||
+      dp === "pda" || dp === "pda," ||
+      dp === "dcsa" || dp === "dcsa," ||
+      dp === "pmo" || dp === "pmo," ||
+      dp === "pfo" || dp === "pfo," ||
+      dp === "ph" || dp === "ph," ||
+      dp === "tb" || dp === "tb," ||
+      dp === "rhd" || dp === "rhd," ||
+      dp === "da" || dp === "da," ||
+      dp === "de" || dp === "de," ||
+      dp === "dvt" || dp === "dvt," ||
+      dp === "cvi" || dp === "cvi," ||
+      dp === "hflr" || dp === "hflr," ||
+      dp === "pa" || dp === "pa," ||
+      dp === "bt" || dp === "bt," ||
+      dp === "l-bt" || dp === "l-bt," ||
+      dp === "avsd" || dp === "avsd," ||
+      dp === "plsvc" || dp === "plsvc," ||
       dp === "av"
     ) {
       return dp.toUpperCase();
