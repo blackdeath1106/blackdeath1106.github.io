@@ -42,7 +42,9 @@ const inputUmurOH = document.querySelector('#inputUmurOH');
 const inputRmOH = document.querySelector('#inputRmOH');
 const inputBangsalOH = document.querySelector('#inputBangsalOH');
 const inputDiagnosisOH = document.querySelector('#inputDiagnosisOH');
+const toggleDiagnosisOHKapital = document.querySelector('#toggleDiagnosisOHKapital');
 const inputPlanOH = document.querySelector('#inputPlanOH');
+const togglePlanOHKapital = document.querySelector('#togglePlanOHKapital');
 const inputOkOH = document.querySelector('#inputOkOH');
 const inputJamOH = document.querySelector('#inputJamOH');
 const inputDokterOH = document.querySelector('#inputDokterOH');
@@ -70,7 +72,9 @@ const inputUmurGBST = document.querySelector('#inputUmurGBST');
 const inputRmGBST = document.querySelector('#inputRmGBST');
 const inputBangsalGBST = document.querySelector('#inputBangsalGBST');
 const inputDiagnosisGBST = document.querySelector('#inputDiagnosisGBST');
+const toggleDiagnosisGBSTKapital = document.querySelector('#toggleDiagnosisGBSTKapital');
 const inputPlanGBST = document.querySelector('#inputPlanGBST');
+const togglePlanGBSTKapital = document.querySelector('#togglePlanGBSTKapital');
 const inputAnestesiGBST = document.querySelector('#inputAnestesiGBST');
 const inputJamGBST = document.querySelector('#inputJamGBST');
 const inputDokterGBST = document.querySelector('#inputDokterGBST');
@@ -220,6 +224,19 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
   }).join(" ");
 }
 
+let timDokterOH = (dokterOH) => {
+  if (dokterOH === "HA") {
+    return 'HA - dr. IA'
+  } else if (dokterOH === "IA") {
+    return 'IA - dr. HA'
+  } else if (dokterOH === "YK") {
+    return 'YK - dr. YA'
+  } else if (dokterOH === "YA") {
+    return 'YA - dr. YK'
+  }
+  return ''
+}
+
 let jamFix = (jam) => {
   if (jam.length === 1) {
     return '0' + jam;
@@ -259,11 +276,22 @@ tombolOH.addEventListener('click', () => {
   outputUmurOH = inputUmurOH.value;
   outputRmOH  = inputRmOH.value;
   outputBangsalOH = bangsalKapital(inputBangsalOH.value);
-  outputDiagnosisOH = diagnosisPlanKapital(inputDiagnosisOH.value);
-  outputPlanOH = diagnosisPlanKapital(inputPlanOH.value);
+
+  if (toggleDiagnosisOHKapital.checked === false) {
+    outputDiagnosisOH = diagnosisPlanKapital(inputDiagnosisOH.value);
+  } else if (toggleDiagnosisOHKapital.checked === true) {
+    outputDiagnosisOH = inputDiagnosisOH.value;
+  }
+
+  if (togglePlanOHKapital.checked === false) {
+    outputPlanOH = diagnosisPlanKapital(inputPlanOH.value);
+  } else if (togglePlanOHKapital.checked === true) {
+    outputPlanOH = inputPlanOH.value;
+  }
+
   outputOkOH = inputOkOH.value;
   outputJamOH = jamFix(inputJamOH.value);
-  outputDokterOH = inputDokterOH.value.toUpperCase();
+  outputDokterOH = timDokterOH(inputDokterOH.value.toUpperCase());
 
   dataPasienOH.push({
     nama: outputNamaOH,
@@ -402,8 +430,19 @@ tombolGBST.addEventListener('click', () => {
   outputUmurGBST = inputUmurGBST.value;
   outputRmGBST  = inputRmGBST.value;
   outputBangsalGBST = bangsalKapital(inputBangsalGBST.value);
-  outputDiagnosisGBST = diagnosisPlanKapital(inputDiagnosisGBST.value);
-  outputPlanGBST = diagnosisPlanKapital(inputPlanGBST.value);
+
+  if (toggleDiagnosisGBSTKapital.checked === false) {
+    outputDiagnosisGBST = diagnosisPlanKapital(inputDiagnosisGBST.value);
+  } else if (toggleDiagnosisGBSTKapital.checked === true) {
+    outputDiagnosisGBST = inputDiagnosisGBST.value;
+  }
+
+  if (togglePlanGBSTKapital.checked === false) {
+    outputPlanGBST = diagnosisPlanKapital(inputPlanGBST.value);
+  } else if (togglePlanGBSTKapital.checked === true) {
+    outputPlanGBST = inputPlanGBST.value;
+  }
+
   outputAnestesiGBST = inputAnestesiGBST.value.toUpperCase();
   outputJamGBST = jamFix(inputJamGBST.value);
   outputDokterGBST = inputDokterGBST.value.toUpperCase();
