@@ -238,11 +238,15 @@ let timDokterOH = (dokterOH) => {
 }
 
 let jamFix = (jam) => {
-  if (jam.length === 1) {
-    return '0' + jam;
+  if (jam.endsWith('.')) {
+    // Jika ada titik di akhir, ubah ke format HH.30
+    jam = jam.slice(0, -1); // Hapus titik
+    return (jam.length === 1 ? '0' + jam : jam) + '.30';
+  } else {
+    // Format standar HH.00
+    return (jam.length === 1 ? '0' + jam : jam) + '.00';
   }
-  return jam;
-}
+};
 
 // TOMBOL HTB
 tombolHTB.addEventListener('click', () => {
@@ -316,7 +320,7 @@ tombolOH.addEventListener('click', () => {
   <br>*Plan*
   <br>_${dataPasienOH[urutanPasienOhMinSatu]['plan']}_
   <br>
-  <br>GA, OK PJT 3.0${dataPasienOH[urutanPasienOhMinSatu]['ok']}, Jam ${dataPasienOH[urutanPasienOhMinSatu]['jam']}.00, dr. ${dataPasienOH[urutanPasienOhMinSatu]['dokter']}
+  <br>GA, OK PJT 3.0${dataPasienOH[urutanPasienOhMinSatu]['ok']}, Jam ${dataPasienOH[urutanPasienOhMinSatu]['jam']}, dr. ${dataPasienOH[urutanPasienOhMinSatu]['dokter']}
   `
 
   jadwalOH.append(listPasienOH);
@@ -344,7 +348,7 @@ tombolOH.addEventListener('click', () => {
   <br>
   <br>*Plan*
   <br>_${dataPasienOH[urutanPasienOhMinSatu]['plan']}_
-  <br>GA, OK PJT 3.0${dataPasienOH[urutanPasienOhMinSatu]['ok']}, jam ${dataPasienOH[urutanPasienOhMinSatu]['jam']}.00. dr. ${dataPasienOH[urutanPasienOhMinSatu]['dokter']}
+  <br>GA, OK PJT 3.0${dataPasienOH[urutanPasienOhMinSatu]['ok']}, jam ${dataPasienOH[urutanPasienOhMinSatu]['jam']}. dr. ${dataPasienOH[urutanPasienOhMinSatu]['dokter']}
   <br>
   <br>Kondisi OK 3.0${dataPasienOH[urutanPasienOhMinSatu]['ok']} pagi ini, suhu 18°C, kelembaban 55%
   <br>
@@ -470,7 +474,7 @@ tombolGBST.addEventListener('click', () => {
   <br>*Plan*
   <br>_${dataPasienGBST[urutanPasienGbstMinSatu]['plan']}_
   <br>
-  <br>${dataPasienGBST[urutanPasienGbstMinSatu]['anestesi']}, OK 5.01, Jam ${dataPasienGBST[urutanPasienGbstMinSatu]['jam']}.00, dr. ${dataPasienGBST[urutanPasienGbstMinSatu]['dokter']}
+  <br>${dataPasienGBST[urutanPasienGbstMinSatu]['anestesi']}, OK 5.01, Jam ${dataPasienGBST[urutanPasienGbstMinSatu]['jam']}, dr. ${dataPasienGBST[urutanPasienGbstMinSatu]['dokter']}
   `
   // if (variabelBantuan == 0) {
   //   jadwalGBST.after(document.createElement('br'));
@@ -502,7 +506,7 @@ tombolGBST.addEventListener('click', () => {
   <br>
   <br>*Plan*
   <br>_${dataPasienGBST[urutanPasienGbstMinSatu]['plan']}_
-  <br>${dataPasienGBST[urutanPasienGbstMinSatu]['anestesi']}, GBST 5.01, jam ${dataPasienGBST[urutanPasienGbstMinSatu]['jam']}.00. dr. ${dataPasienGBST[urutanPasienGbstMinSatu]['dokter']}
+  <br>${dataPasienGBST[urutanPasienGbstMinSatu]['anestesi']}, GBST 5.01, jam ${dataPasienGBST[urutanPasienGbstMinSatu]['jam']}. dr. ${dataPasienGBST[urutanPasienGbstMinSatu]['dokter']}
   <br>
   <br>Pasien siap dipanggil
   <br>Anestesi persiapan
