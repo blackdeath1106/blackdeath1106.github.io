@@ -264,7 +264,7 @@ tombolHTB.addEventListener('click', () => {
     })
 
     htbJadwalOperasi = document.createElement('p');
-    htbJadwalOperasi.innerHTML += `*${htb[0]['hari']}, ${htb[0]['tanggal']} ${htb[0]['bulan']} 2024*`
+    htbJadwalOperasi.innerHTML += `*${htb[0]['hari']}, ${htb[0]['tanggal']} ${htb[0]['bulan']} 2025*`
     izinOperasi.after(htbJadwalOperasi);
 
     document.querySelector('#containerHTB').classList.add('none');
@@ -381,7 +381,7 @@ tombolOH.addEventListener('click', () => {
   <br>*Diagnosis :*
   <br>${dataPasienOH[urutanPasienOhMinSatu]['diagnosis']}
   <br>
-  <br>*Tindakan : (${htb[0]['tanggal']}/${htb[0]['bulanAngka']}/2024)*
+  <br>*Tindakan : (${htb[0]['tanggal']}/${htb[0]['bulanAngka']}/2025)*
   <br>${dataPasienOH[urutanPasienOhMinSatu]['plan']}
   <br>
   <br>TD: pre mmHg post mmHg
@@ -533,7 +533,7 @@ tombolGBST.addEventListener('click', () => {
   <br>*Diagnosis :*
   <br>${dataPasienGBST[urutanPasienGbstMinSatu]['diagnosis']}
   <br>
-  <br>*Tindakan : (${htb[0]['tanggal']}/${htb[0]['bulanAngka']}/2024)*
+  <br>*Tindakan : (${htb[0]['tanggal']}/${htb[0]['bulanAngka']}/2025)*
   <br>${dataPasienGBST[urutanPasienGbstMinSatu]['plan']}
   <br>
   <br>TD: pre mmHg post mmHg
