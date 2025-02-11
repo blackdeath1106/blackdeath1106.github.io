@@ -226,13 +226,19 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
 
 let timDokterOH = (dokterOH) => {
   if (dokterOH === "HA") {
-    return 'HA - dr. IA'
+    // return 'HA - dr. IA'
+    return 'HA'
   } else if (dokterOH === "IA") {
-    return 'IA - dr. HA'
+    // return 'IA - dr. HA'
+    return 'IA'
   } else if (dokterOH === "YK") {
-    return 'YK - dr. YA'
+    // return 'YK - dr. YA'
+    return 'YK'
   } else if (dokterOH === "YA") {
-    return 'YA - dr. YK'
+    // return 'YA - dr. YK'
+    return 'YA'
+  } else if (dokterOH === "AU") {
+    return 'AU'
   }
   return ''
 }
