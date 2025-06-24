@@ -35,6 +35,8 @@ const bulanFix = {
   12: 'Desember'
 }
 
+let tambahNol = (angka) => angka.toString().padStart(2, '0');
+
 // FORM OH
 const inputNamaOH = document.querySelector('#inputNamaOH');
 const inputKelaminOH = document.querySelector('#inputKelaminOH');
@@ -101,6 +103,7 @@ const jadwalOH = document.querySelector('#jadwalOH');
 const jadwalGBST = document.querySelector('#jadwalGBST');
 const listKetikanPanggilOH = document.querySelector('#listKetikanPanggilOH');
 const listRmkOH = document.querySelector('#listRmkOH');
+const listKetikanPreOH = document.querySelector('#listKetikanPreOH');
 const listKetikanPanggilGBST = document.querySelector('#listKetikanPanggilGBST');
 const listRmkGBST = document.querySelector('#listRmkGBST');
 let brBantuan = document.createElement('br');
@@ -259,14 +262,18 @@ tombolHTB.addEventListener('click', () => {
 
     outputHari = hariFix[inputHari.value];
     outputTanggal = inputTanggal.value;
+    outputTanggalFix = tambahNol(inputTanggal.value);
     outputBulanAngka = inputBulan.value;
     outputBulan = bulanFix[inputBulan.value];
+    outputBulanAngkaFix = tambahNol(inputBulan.value);
 
     htb.push({
       hari: outputHari,
       tanggal: outputTanggal,
-      bulan: outputBulan,
+      tanggalFix: outputTanggalFix,
       bulanAngka: outputBulanAngka,
+      bulan: outputBulan,
+      bulanAngkaFix: outputBulanAngkaFix
     })
 
     htbJadwalOperasi = document.createElement('p');
@@ -416,6 +423,105 @@ tombolOH.addEventListener('click', () => {
 
   listRmkOH.append(rmkOH);
   document.querySelector('#containerRmkOH').classList.remove('none');
+
+  let ketikanPreOH = document.createElement('div');
+  ketikanPreOH.innerHTML += `
+  <h2 id="toggleKetikanPreOH${urutanPasienOhMinSatu}">Ketikan Pre OH ${dataPasienOH[urutanPasienOhMinSatu]['nama']}</h2>
+  <div id="containerKetikanPreOH${urutanPasienOhMinSatu}">
+  <p>Mohon izin dokter, izin melampirkan update SOAP pasien pre operasi OH besok dokter :
+  <br>${htb[0]['hari']}, ${htb[0]['tanggalFix']}/${htb[0]['bulanAngkaFix']}/2025
+  <br>
+  <br>${dataPasienOH[urutanPasienOhMinSatu]['nama']}, ${dataPasienOH[urutanPasienOhMinSatu]['kelamin']}, ${dataPasienOH[urutanPasienOhMinSatu]['umur']} thn, ${dataPasienOH[urutanPasienOhMinSatu]['rm']}, ${dataPasienOH[urutanPasienOhMinSatu]['bangsal']}
+  <br>
+  <br>S/
+  <br>RPS :
+  <br>
+  <br>RPD :
+  <br>Faktor risiko :
+  <br>
+  <br>O/
+  <br>KU : baik, CM
+  <br>TD : mmHg
+  <br>N : kali/menit
+  <br>RR : kali/menit
+  <br>S : °C
+  <br>SPO2 %
+  <br>BB kg TB cm
+  <br>
+  <br>Kepala
+  <br>CA (-/-), SI (-/-)
+  <br>
+  <br>Leher
+  <br>Pembesaran limfonodi (-), JVP normal
+  <br>
+  <br>Thorax:
+  <br>I : simetris kanan dan kiri
+  <br>P :  VF = kanan dan kiri, krepitasi (-)
+  <br>P : sonor (+/+)
+  <br>A : vesikuler (+/+), ronkhi (-/-), wheezing, S1 tunggal, S2 split tak konstan, bising (-)
+  <br>
+  <br>Abdomen
+  <br>I : distensi (-)
+  <br>A : bising usus (+) normal
+  <br>P : supel, ascites (-), hepar dan lien tidak teraba
+  <br>P : timpani
+  <br>
+  <br>Ekstremitas:
+  <br>Akral hangat, nadi teraba kuat, CRT < 2 detik, sianosis (-), edem tungkai (-/-)
+  <br>
+  <br>Laboratorium (tanggal/bulan/2025)
+  <br>AE
+  <br>Hb
+  <br>Hct
+  <br>AL
+  <br>AT
+  <br>PPT
+  <br>APTT
+  <br>INR
+  <br>Alb
+  <br>OT
+  <br>PT
+  <br>BUN
+  <br>Kreatinin
+  <br>GDS
+  <br>Na
+  <br>K
+  <br>Cl
+  <br>HBsAg NR
+  <br>
+  <br>AGD (tanggal/bulan/2025)
+  <br>FIO2
+  <br>pH
+  <br>PCO2
+  <br>CHCO3
+  <br>PAO2
+  <br>BE
+  <br>Lactat
+  <br>
+  <br>Thorax PA (tanggal/bulan/2025) RSS
+  <br>
+  <br>Kateterisasi jantung (tanggal/bulan/202)
+  <br>
+  <br>Ekokardiografi transtorakal (tanggal/bulan/202)
+  <br>
+  <br>Ekokardiografi transesofageal (tanggal/bulan/202)
+  <br>
+  <br>Ekokardiogram (tanggal/bulan/202)
+  <br>ASSESMENT
+  <br>
+  <br>A/
+  <br>${dataPasienOH[urutanPasienOhMinSatu]['diagnosis']}
+  <br>
+  <br>P/
+  <br>${dataPasienOH[urutanPasienOhMinSatu]['plan']}
+  <br>
+  <br>Mohon arahan Dokter,
+  <br>Terima kasih Dokter
+  </div>
+  `
+
+  listKetikanPreOH.append(ketikanPreOH);
+  document.querySelector('#containerKetikanPreOH').classList.remove('none');
 
   urutanPasienOH++;
   urutanPasienOhMinSatu++;
@@ -595,6 +701,9 @@ document.querySelector('#toggleKetikanPanggilOH').addEventListener('click', () =
 document.querySelector('#toggleRmkOH').addEventListener('click', () => {
   document.querySelector('#listRmkOH').classList.toggle('none');
 })
+document.querySelector('#toggleKetikanPreOH').addEventListener('click', () => {
+  document.querySelector('#listKetikanPreOH').classList.toggle('none');
+})
 document.querySelector('#toggleKetikanPanggilGBST').addEventListener('click', () => {
   document.querySelector('#listKetikanPanggilGBST').classList.toggle('none');
 })
@@ -613,6 +722,10 @@ document.querySelector('#toggleSelesai').addEventListener('click', () => {
     document.querySelector(`#toggleRmkOH${i}`).classList.add('marginZero');
     document.querySelector(`#toggleRmkOH${i}`).addEventListener('click', () => {
       document.querySelector(`#containerRmkOH${i}`).classList.toggle('none');
+    })
+    document.querySelector(`#toggleKetikanPreOH${i}`).classList.add('marginZero');
+    document.querySelector(`#toggleKetikanPreOH${i}`).addEventListener('click', () => {
+      document.querySelector(`#containerKetikanPreOH${i}`).classList.toggle('none');
     })
   }
 
