@@ -64,6 +64,11 @@ h1 {
   padding: 20px 0px;
 }
 
+#containerKetikanPreOH {
+  background-color: #e0c3fc;
+  padding: 20px 0px;
+}
+
 #containerRmkOH {
   background-color: #59adf6;
   padding: 20px 0px;
@@ -111,6 +116,7 @@ h1 {
 #containerJadwalOperasi,
 #containerKetikanPanggilOH,
 #containerRmkOH,
+#containerKetikanPreOH,
 #containerKetikanPanggilGBST,
 #containerRmkGBST {
   display: flex;
