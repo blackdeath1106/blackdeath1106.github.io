@@ -157,6 +157,7 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "ke" ||
       dp === "a" ||
       dp === "via" ||
+      dp === "under" ||
       dp === "at"
     ) {
       return dp;
@@ -218,6 +219,7 @@ let diagnosisPlanKapital = (diagnosisPlan) => {
       dp === "bt" || dp === "bt," ||
       dp === "l-bt" || dp === "l-bt," ||
       dp === "avsd" || dp === "avsd," ||
+      dp === "evla" || dp === "evla," ||
       dp === "plsvc" || dp === "plsvc," ||
       dp === "av"
     ) {
@@ -740,3 +742,4 @@ document.querySelector('#toggleSelesai').addEventListener('click', () => {
     })
   }
 })
+
